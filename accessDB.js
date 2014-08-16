@@ -66,13 +66,7 @@ module.exports = {
     	});
   	},
 
-    /*get all blogs
-  	getBlogs: function(req, res) {
-    	Blog.find({}, function(err, docs) {
-      		res.render('blog', { title: 'all blogs', blogs: docs});
-    	});
-  	},
-     */
+
     getBlogs: function(req, res) {
       Blog.find({}).sort('-created').exec(function(err, docs) {
           res.render('blog', { title: 'all blogs', blogs: docs});

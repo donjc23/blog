@@ -9,6 +9,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
+var cloudinary = require('cloudinary');
+var keys = require('./keys.js');
 var app = express();
 var DB = require('./accessDB');
 
@@ -23,12 +25,24 @@ app.configure(function() {
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
+  cloudinary.config({ 
+    cloud_name: keys.cloud.cloud_name, 
+    api_key: keys.cloud.api_key, 
+    api_secret: keys.cloud.api_secret
+  });
 });
+
+// local
+app.locals.api_key = cloudinary.config().api_key;
+app.locals.cloud_name = cloudinary.config().cloud_name;
+
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+
 
 //heroku db or localhost if we don't find one. 
 var mongoUri = process.env.MONGOLAB_URI ||
