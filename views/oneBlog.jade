@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  .left-box
+    section.left-col
+      h3 #{targetblog.title}
+      if(targetblog.video!=='')
+        .vid
+          <iframe width="560" height="315" src="http://www.youtube.com/embed/#{targetblog.video}" frameborder="0" allowfullscreen></iframe>
+        
+      <br><br><br>
+
+      each pa, i in targetblog.stuff.para
+        if(targetblog.stuff.photos[i])
+          <img src="../images/#{targetblog.stuff.photos[i]}"/>
+        p.
+          #{pa}
+
+      h4 Comments:
+      each comment in comments
+        p.
+          #{comment.comment} <br>
+          #{comment.name} @ #{comment.created} 
+
+
+    section.left-col 
+      p care to leave a comment?
+
+      form(method="POST", action="/blog/#{targetblog._someId}")
+        p 
+          label(for="name") Name <br>
+          input(type="text", name="name")
+        p 
+          label(for="comment") Comment <br>
+          textarea(name="comment", rows="4", cols="50") 
+        p
+          button(type="submit") Say it     
+
+  .right-box
+    aside.sidebar
+      h3 recent post
+      ul
+       each blog in blogs
+         li: a(href="/blog/#{blog._someId}") #{blog.title}

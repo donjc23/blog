@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .left-box
+    section.left-col
+      h3 the Voice of China -中國好聲音 第三季
+      p.
+        Who is following this show? these guys are good.
+      .vid
+        <iframe width="560" height="315" src="http://www.youtube.com/embed/PCyZ-YwcXRs" frameborder="0" allowfullscreen></iframe>
+      div
+        p.
+          陈冰《盛夏光年》
+
+    section.left-col
+      h3 the Voice of China
+      .vid
+        <iframe width="560" height="315" src="http://www.youtube.com/embed/enYHey3N8gQ" frameborder="0" allowfullscreen></iframe>
+      div
+        p.
+          陳樂基(香港)《月半小夜曲》
+
+  .right-box
+    aside.sidebar
+      h3 recent post
+      ul
+       each blog in blogs
+         li: a(href="/blog/#{blog._someId}") #{blog.title}

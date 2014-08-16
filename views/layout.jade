@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(charset="utf-8")
+    link(rel='stylesheet', href='../stylesheets/menu.css')
+  body
+    #wrapper
+      h1 D306
+      ul#navmenu
+        li: a(href="/") Home
+        li: a(href="/blog") Blogs
+        li
+          a(href="#") News <span class="darrow">&#9660;</span>
+          ul.sub1
+            li: a(href="#") World
+            li
+              a(href="#") Sports <span class="rarrow">&#9654;</span>
+              ul.sub2
+                li: a(href="#") ManUtd
+                li: a(href="#") Others
+        .clearfix
+
+      block content
+
+      #footer
+        center
+          h5 Don@2014
+
+      .clearfix

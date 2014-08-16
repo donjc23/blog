@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  .left-box
+    section.left-col
+      h3 post a blog
+      
+      form(method="POST", action="/blog/new", enctype="multipart/form-data")
+        p 
+          label(for="title") Title <br>
+          input(type="text", name="title")
+        p 
+          label(for="video") Video <br>
+          input(type="text", name="video")          
+        p 
+          label(for="pic1") photo1 <br>
+          input(type="file", name="pic1")         
+        p 
+          label(for="para1") para1 <br>
+          textarea(name="para1", rows="5", cols="50")
+         p 
+          label(for="pic2") photo2 <br>
+          input(type="file", name="pic2")          
+        p 
+          label(for="para2") para2 <br>
+          textarea(name="para2", rows="5", cols="50")
+        p 
+          label(for="pic3") photo3 <br>
+          input(type="file", name="pic3")           
+        p 
+          label(for="para3") para3 <br>
+          textarea(name="para3", rows="5", cols="50")
+
+        p
+          button(type="submit") Create post
+

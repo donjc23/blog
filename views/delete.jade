@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .left-box
+    section.left-col
+      h3 delete posts
+      table
+        thead
+          tr: th all posts
+        tbody
+          each blog in blogs
+            tr
+              td: a(href="/blog/#{blog._someId}") #{blog.title}
+              td 
+                form(action="/blog/#{blog._someId}", method="POST")
+                  input(type="hidden", name="_method", value="DELETE")
+                  button(type="submit")  Delete
+                  
