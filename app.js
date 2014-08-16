@@ -9,7 +9,7 @@ var express = require('express')
   , path = require('path');
 
 var cloudinary = require('cloudinary');
-var keys = require('./keys.js');
+var keys = require('./keys');
 var app = express();
 var DB = require('./accessDB');
 
@@ -53,7 +53,7 @@ if ('development' == app.get('env')){
 }else{
 	DB.connectHDB(mongoUri);
 }
-///////////////////////////////////////////////////////////
+
 // Routes
 require('./routes')(app);
 
