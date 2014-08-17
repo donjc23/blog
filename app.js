@@ -12,7 +12,7 @@ var cloudinary = require('cloudinary');
 
 
 var DB = require('./accessDB');
-var KB = require('./kays');
+//var KB = require('./kays');
 var app = express();
 
 
@@ -28,9 +28,9 @@ app.configure(function() {
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
   cloudinary.config({ 
-    cloud_name: KB.cloud.cloud_name, 
-    api_key: KB.cloud.api_key, 
-    api_secret: KB.cloud.api_secret
+     cloud_name: 'hztxvr5xs', 
+     api_key: '256832836758345', 
+     api_secret: 'kg_DV4ZDhusN9x8C9U6mHox3-d8'
   });  
  
 });
