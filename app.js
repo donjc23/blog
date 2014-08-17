@@ -10,10 +10,11 @@ var express = require('express')
 
 var cloudinary = require('cloudinary');
 
-var app = express();
+
 var DB = require('./accessDB');
-var KB = require('./kays');
-//var okey = require('./keys.js');
+var KB = require('./kays.js');
+var app = express();
+
 
 // all environments
 app.configure(function() {
