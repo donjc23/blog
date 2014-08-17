@@ -12,7 +12,7 @@ var cloudinary = require('cloudinary');
 
 
 var DB = require('./accessDB');
-var KB = require('./kays.js');
+var KB = require('./kays');
 var app = express();
 
 
@@ -34,6 +34,7 @@ app.configure(function() {
   });  
  
 });
+
 
 // local
 app.locals.api_key = cloudinary.config().api_key;
