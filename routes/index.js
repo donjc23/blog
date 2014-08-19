@@ -9,8 +9,8 @@ module.exports = {
   	index: function(req, res) {
     	res.render('index', { title: 'home' });
   	},
-	blogs: function(req, res) {
-	    res.render('blog', { title: 'blog' });
+	contact: function(req, res) {
+	    res.render('contact', { title: 'contact' });
 	},
 	newblog: function(req, res) {
 	    res.render('post-blog-form', { title: 'post' });

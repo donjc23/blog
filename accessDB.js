@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
 	, Blog = require('./models/blog')
 	, Comment = require('./models/comment');
 var mongo = require('mongodb');
-
+var sendgrid  = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 
 module.exports = {
   /*local*/
@@ -103,7 +103,25 @@ module.exports = {
         		res.redirect('/blog');
       		}
   		);
-  	} 	
+  	}, 	
+
+    //send email
+    sendEmail: function(req, res) {
+      var b = req.body;
+      var email = new sendgrid.Email({
+        to:       'donwang23@gmail.com',
+        from:     b.email,
+        subject:  'send from ' + b.name + ' about i-play website',
+        text:     b.message
+      });
+
+      sendgrid.send(email, function(err, json) {
+        if (err) { return console.error(err); }
+        res.redirect('/blog');
+      });
+
+    }
+
 
 
 

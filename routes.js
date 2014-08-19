@@ -59,7 +59,7 @@ function uploadfile3(req, res, next) {
 module.exports = function(app) {
 
  	app.get('/', start.index);
-    //app.get('/blog', start.blog);
+    
     app.get('/blog/new', start.newblog);
 
     app.get('/blog', blog.getBlogs);
@@ -80,8 +80,8 @@ module.exports = function(app) {
 
 //////////////////////////////////////////////////////////
 
-
-    //app.get('/blogtest', start.blogs);
-
+	app.get('/contact', start.contact);
+    //email me
+	app.post('/email', blog.sendEmail);
 
 }
