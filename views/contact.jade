@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .left-box
+    section.left-col
+      h3 Send me a message:
+      
+      form(method="POST", action="/blog/email")
+        p 
+          label(for='name') Your Name:<br>
+          input(type="text", name="name")      
+        p 
+          label(for='email') Your Email:<br>
+          input(type="email", name="email")
+        p
+          label(for="message") Message: <br>
+          textarea(name="message", rows="5", cols="50")
+
+
+        p
+          button(type="submit") Send Message
